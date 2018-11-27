@@ -1,2 +1,48 @@
-<h1>Pages#home</h1>
+<!-- <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Basic info</title>
+
+  <!-- Google fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Montserrat:400,700">
+
+  <!-- Fontawesome -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Your style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="home-page"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="display-table width-100 height-100">
+        <div class="display-table-cell vertical-middle align-center">
+          <span class="block strapline-intro">Find your happy</span>
+          <h1 class="hero-strapline">Search properties for sale!</h1>
+          <!-- <div class="inline-block"> -->
+            <form action="/flats">
+             <div class="row">
+               <div class="col">
+                <input type="text" name="address" class="form-control" placeholder="Location">
+              </div>
+              <div class="col">
+               <input type="integer" name="price" class="form-control" placeholder="Price Range">
+               <input type="submit" value="Search" class="btn btn-default">
+             </div>
+           </div>
+         </form>
+         <div class="pos-rel">
+          <ul id="typeaheadList" class="type-ahead-list" style="display:none">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
