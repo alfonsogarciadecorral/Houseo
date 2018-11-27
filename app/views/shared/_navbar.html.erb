@@ -1,3 +1,4 @@
+<nav class="navbar navbar-default navbar-static-top">
 <div class="navbar-wagon">
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
@@ -7,8 +8,9 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Place your add here</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Log In</a>
+    <%= link_to "Place your add here", new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Log in", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
 
     <!-- <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a> -->
 
@@ -17,22 +19,11 @@
       <div class="dropdown">
         <img src="https://res.cloudinary.com/doq7jkjo0/image/upload/v1543314369/Houseo/loginicon.png" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Bookings</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %> </li>
         </ul>
       </div>
     </div>
   </div>
-
-  <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Host</a></li>
-        <li><a href="#">Trips</a></li>
-      </ul>
-    </div>
-  </div>
 </div>
+</nav>
 
