@@ -1,0 +1,5 @@
+<%@flats.each do |flat| %>
+    <p><%= link_to flat.title, flat_path(flat) %></p>
+<% end %>
+<p><%= link_to "Add a new flat", new_flat_path %></p>
+<p><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
