@@ -1,15 +1,27 @@
-<ul>
-    <li><%= @flat.title %></li>
-    <li><%= @flat.price %></li>
-    <li><%= @flat.address %></li>
-    <li><%= @flat.number_of_rooms %></li>
-    <li><%= @flat.description %></li>
-</ul>
+
+
+
+<div class="message">
+  <%= image_tag 'house.png', width: "400px", height: "auto"%>
+  <div class="message-name">
+    <h3></h3>
+  </div>
+  <div class="details">
+    <p><strong><%=@flat.title.capitalize%></strong></p>
+    <p><%=@flat.description%></p>
+    <p>Address: <%= @flat.address %> | Rooms: <%= @flat.number_of_rooms %></p>
+  </div>
+  <div class="price">
+    <p class="price">Price: €<%=@flat.price%></p>
+  </div>
+</div>
+
 <%@appointments.each do |appointment| %>
-  <ul>
-    <li><%=appointment.time%></li>
-    <li><%=appointment.date%></li>
-    <li><%=appointment.status%></li>
-  </ul>
+<ul>
+  <li><%=appointment.time%></li>
+  <li><%=appointment.date%></li>
+  <li><%=appointment.status%></li>
+</ul>
 <% end %>
 <p><%= link_to "Back to the search", root_path %></p>
+
