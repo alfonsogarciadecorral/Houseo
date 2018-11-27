@@ -16,6 +16,9 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
+    if !params[:photo]
+      @flat.remote_photo_url = "https://urbangauge.com/wp-content/uploads/2018/06/flat-768x384.jpg"
+    end
     @flat.user = current_user
     if @flat.save
       redirect_to flat_path(@flat)
@@ -43,7 +46,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:title, :price, :address, :description, :number_of_rooms, :user_id)
+    params.require(:flat).permit(:title, :price, :address, :description, :number_of_rooms, :photo, :user_id)
   end
 
   def set_flat
