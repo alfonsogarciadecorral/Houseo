@@ -1,8 +1,14 @@
 <ul>
-    <li><%= flat.title %></li>
-    <li><%= flat.price %></li>
-    <li><%= flat.address %></li>
-    <li><%= flat.number_of_rooms %></li>
-    <li><%= flat.description %></li>
+    <li><%= @flat.title %></li>
+    <li><%= @flat.price %></li>
+    <li><%= @flat.address %></li>
+    <li><%= @flat.number_of_rooms %></li>
+    <li><%= @flat.description %></li>
 </ul>
+<%@appointments.each do |appointment| %>
+  <ul>
+    <li><%=appointment.time%></li>
+    <li><%=appointment.date%></li>
+    <li><%=appointment.status%></li>
+  </ul>
 <p><%= link_to "Back to the list of flats", flats_path %></p>

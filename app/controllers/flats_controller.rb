@@ -6,6 +6,7 @@ class FlatsController < ApplicationController
   end
 
   def show
+    @appointments = @flat.appointments
   end
 
   def new
