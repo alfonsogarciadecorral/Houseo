@@ -1,0 +1,21 @@
+<%= simple_form_for [@flat, @appointment] do |f| %>
+  <%= f.label :date %>
+  <%= f.input :date %>
+
+  <%= f.label :time %>
+  <%= f.input :time %>
+
+
+  <%= f.label :user_id %>
+  <%= f.input :user_id %>
+
+  <%= f.label :status %>
+  <%= f.input :status %>
+
+  <%= f.submit "add a appointment", class: "btn btn-primary" %>
+<% end %>
+
+
+<%= link_to "Go to flats", flats_path %>
+
+
