@@ -3,7 +3,7 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @flats = Flat.where(address: params["address"], price: (params["price"].to_i*8/10)..(params["price"].to_i*10/8))
+    @flats = Flat.near(params["address"], 15)
     @markers = @flats.map do |flat|
       {
         lng: flat.longitude,
