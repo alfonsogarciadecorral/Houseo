@@ -22,3 +22,20 @@
 
 <p><%= link_to "Add a new flat", new_flat_path %></p>
 
+
+
+
+<h1> My appointmentsssss</h1>
+<%@user.appointments.each do |appointment| %>
+<ul>
+  <li><%=appointment.time%></li>
+  <li><%=appointment.date%></li>
+  <li><%=appointment.status%></li>
+  <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
+     method: :delete,
+     data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+
+<% end %>
+
