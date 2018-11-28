@@ -1,8 +1,5 @@
-
-
-
 <div class="message">
-  <%= image_tag 'house.png', width: "400px", height: "auto"%>
+  <%= cl_image_tag @flat.photo, height: 300, width: 400, crop: :fill %>
   <div class="message-name">
     <h3></h3>
   </div>
