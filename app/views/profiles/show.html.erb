@@ -1,15 +1,26 @@
-<%@flats.each do |flat| %>
-    <h3><%= link_to flat.title, flat_path(flat) %></h3>
-    <p><%= link_to "Edit flat above", edit_flat_path(flat) %></p>
-    <p><%= link_to "Delete above", flat_path(flat),
+<div class="body">
+  <div class="cards">
+    <div class="row">
+      <%@flats.each do |flat| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path flat.photo, height: 300, width: 400, crop: :fill %>')">
+            <div class="card-description">
+              <h2><%= link_to flat.title, flat_path(flat) %></h2>
+              <p>Address: <%= flat.address %> | Rooms: <%= flat.number_of_rooms %></p>
+               <p><%= link_to "Edit flat", edit_flat_path(flat) %></p>
+                <p><%= link_to "Delete flat", flat_path(flat),
      method: :delete,
      data: { confirm: "Are you sure?" } %>
-</p>
-<% end %>
+            </div>
+            <p class="card-category"><%= flat.price %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <p>-----------------</p>
 <p><%= link_to "Add a new flat", new_flat_path %></p>
 <p>-----------------</p>
 <p><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
-
-
