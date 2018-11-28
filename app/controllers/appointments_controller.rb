@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments = Appointment.all
+    set_user
+    @appointments = Appointment.where(user_id: @user.id)
   end
 
   def new
@@ -12,6 +13,9 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     # we need `flat_id` to asssociate appointment with corresponding restaurant
     @appointment.flat = Flat.find(params[:flat_id])
+    @appointment.user = current_user
+    @appointment.status = "Pending"
+
     if @appointment.save
       redirect_to flat_path(@appointment.flat)
     else
@@ -30,5 +34,10 @@ class AppointmentsController < ApplicationController
 
   def appointment_params
     params.require(:appointment).permit(:date, :time, :flat_id, :user_id, :status)
+  end
+
+
+  def set_user
+    @user = current_user
   end
 end

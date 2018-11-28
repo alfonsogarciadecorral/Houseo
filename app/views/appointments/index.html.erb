@@ -1,13 +1,12 @@
 <h1>Appointmentss</h1>
 
-<% @appointments.each do |appointment|  %>
-<% if appointment.flat_id.to_i == params[:flat_id].to_i%>
-<p><%= appointment.status %>cl </p>
+<%@appointments.each do |appointment| %>
+<ul>
+  <li><%=appointment.time%></li>
+  <li><%=appointment.date%></li>
+  <li><%=appointment.status%></li>
+    <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
+     method: :delete,
+     data: { confirm: "Are you sure?" } %></li>
+</ul>
 <% end %>
-<% end %>
-<p> </p>
-<p> </p>
-
-<%= link_to "Add an appointment", new_flat_appointment_path(params[:flat_id]) %>
-<p></p>
-<%= link_to "Go to flats", cocktails_path %>
