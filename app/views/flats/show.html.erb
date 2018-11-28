@@ -12,7 +12,6 @@
     <p class="price">Price: €<%=@flat.price%></p>
   </div>
 </div>
-
 <%@appointments.each do |appointment| %>
 <ul>
   <li><%=appointment.time%></li>
@@ -20,5 +19,6 @@
   <li><%=appointment.status%></li>
 </ul>
 <% end %>
-<p><%= link_to "Back to the search", root_path %></p>
 
+
+<%= link_to "Back to the search", flats_path(address: params[:format]), class:"btn btn-primary" %>
