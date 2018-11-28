@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
 gem 'sassc-rails'
 gem 'simple_form'
+gem "geocoder"
 gem 'uglifier'
 gem 'webpacker'
 gem 'carrierwave', '~> 1.2'

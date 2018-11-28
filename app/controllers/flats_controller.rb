@@ -4,6 +4,13 @@ class FlatsController < ApplicationController
 
   def index
     @flats = Flat.where(address: params["address"], price: (params["price"].to_i*8/10)..(params["price"].to_i*10/8))
+    @markers = @flats.map do |flat|
+      {
+        lng: flat.longitude,
+        lat: flat.latitude,
+        infoWindow: { content: render_to_string(partial: "/flats/map_window", locals: { flat: flat }) }
+      }
+    end
   end
 
   def show
