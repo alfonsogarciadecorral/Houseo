@@ -21,6 +21,13 @@
       <p>€<%=@flat.price%></p>
   </div>
 </div>
+
+<% if !params[:format].nil? %>
+<%= link_to "Back to the search", flats_path(query:{address: params[:format]}), class:"btn btn-primary" %>
+<% end  %>
+
+
+
 <%@appointments.each do |appointment| %>
 <ul>
   <li><%=appointment.time%></li>
@@ -30,6 +37,5 @@
 <% end %>
 
 
-<% if !params[:format].nil? %>
-<%= link_to "Back to the search", flats_path(address: params[:format]), class:"btn btn-primary" %>
-<% end  %>
+
+</div>
