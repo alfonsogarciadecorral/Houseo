@@ -21,4 +21,6 @@
 <% end %>
 
 
+<% if !params[:format].nil? %>
 <%= link_to "Back to the search", flats_path(address: params[:format]), class:"btn btn-primary" %>
+<% end  %>
