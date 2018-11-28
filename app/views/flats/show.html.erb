@@ -1,15 +1,24 @@
-<div class="message">
-  <%= cl_image_tag @flat.photo, height: 300, width: 400, crop: :fill %>
-  <div class="message-name">
-    <h3></h3>
+<div class="flat-container">
+  <div class="flat-image">
+    <%= cl_image_tag @flat.photo, height: 200, width: 300, crop: :fill %>
   </div>
-  <div class="details">
-    <p><strong><%=@flat.title.capitalize%></strong></p>
-    <p><%=@flat.description%></p>
-    <p>Address: <%= @flat.address %> | Rooms: <%= @flat.number_of_rooms %></p>
+  <div class="flat-details">
+      <div class="flat-title">
+        <p><strong><%=@flat.title.capitalize%></strong></p>
+        <p class ="flat-description"><%=@flat.description%></p>
+      </div>
+      <div class="flat-address">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>Address: <%= @flat.address %> | Rooms: <%= @flat.number_of_rooms %></p>
+      </div>
   </div>
-  <div class="price">
-    <p class="price">Price: €<%=@flat.price%></p>
+  <div class="flat-price">
+      <h6>Price: </h6>
+      <p>€<%=@flat.price%></p>
   </div>
 </div>
 <%@appointments.each do |appointment| %>

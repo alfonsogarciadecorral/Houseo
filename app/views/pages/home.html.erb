@@ -23,20 +23,12 @@
     <div class="hero-content">
       <div class="display-table width-100 height-100">
         <div class="display-table-cell vertical-middle align-center">
-          <span class="block strapline-intro">Find your happy</span>
           <h1 class="hero-strapline">Search properties for sale!</h1>
-          <!-- <div class="inline-block"> -->
-            <form action="/flats">
-             <div class="row">
-               <div class="col">
-                <input type="text" name="address" class="form-control" id="flat_address" placeholder="Location">
-              </div>
-              <div class="col">
-               <input type="integer" name="price" class="form-control" placeholder="Price Range">
-               <input type="submit" value="Search" class="btn btn-default">
-             </div>
-           </div>
-         </form>
+         <%= simple_form_for :query, method: :get, url: flats_path do |f| %>
+          <%= f.input :address, label: false, placeholder: "Location", :input_html => { :id => "flat_address"} %>
+          <%= f.input :price, label: false, placeholder: "Price range" %>
+          <span><%= f.submit "Search", class: "btn btn-primary center-block" %></span>
+        <% end %>
          <div class="pos-rel">
           <ul id="typeaheadList" class="type-ahead-list" style="display:none">
           </ul>

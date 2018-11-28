@@ -1,47 +1,39 @@
-
-.message {
+.flat-container {
   display: flex;
-  align-items: center;
-  padding: 20px;
+  height: 100vh;
+  padding-top: 30px;
+}
+.flat-image {
+  padding-left: 30px;
   border-bottom: 1px solid rgba(220,224,244,0.4);
 }
-.message:last-child {
-  border-bottom: none;
+.flat-title {
+ font-size: 25px;
+ font-style: Serif;
 }
-.details {
-  flex-grow: 1;
-}
-.message-name {
-  padding-left: 10px;
-  min-width: 100px;
-}
-.message-name h3 {
-  font-size: 13px;
-  margin-bottom: 0px;
-}
-.message-name p {
-  font-size: 13px;
-  font-weight: lighter;
-  opacity: 0.6;
-  margin-top: 5px;
-}
-.details {
-  padding-left: 10px;
-  font-size: 13px;
+.flat-details {
+  height: 200;
+  width: 300;
+  margin-left: 50px;
+  margin-right: 400px;
   color: rgba(0,0,0,0.7);
 }
-.details {
-  padding-left: 20px;
-  color: rgba(0,0,0,0.4);
+.flat-description {
+  font-size: 12px;
 }
-.details strong{
-  color: rgba(0,0,0,0.9);
-  color: rgba(0,0,0,0.9);
+.flat-address {
+  font-size:12px;
+  font-weight: bold;
+  bottom: 3px;
+  left: 3px;
+  margin-bottom: 200px;
 }
-.details p {
-  margin: 6px 0;
-}
-.price {
+.flat-price {
+  padding-right: 50px;
   font-size: 14px;
   font-weight: bold;
+  p {
+    font-size: 28px;
+  }
 }
+
