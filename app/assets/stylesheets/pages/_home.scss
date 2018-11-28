@@ -1,26 +1,18 @@
 .block {
-  display: block!important;
+  display: block;
 }
+
 .align-center {
-  text-align: center!important;
-}
-
-.display-table-cell {
-  color: rgb(255, 255, 255);
-  text-shadow: none !important;
-  background: rgb(0, 72, 137);
   text-align: center;
-  text-shadow: none;
-  line-height: 44px;
 }
 
-.block {
+.strapline-intro {
   font-family: Effra-Medium, Arial, Geneva, sans-serif;
   font-weight: 400;
-  font-size: 37px;
+  font-size: 5rem;
   color: rgb(0, 222, 182);
-  padding: 0px 0px 1px;
-  margin: 0px;
+  padding: 0 0 1px;
+  margin: 0;
 }
 
 .home-page {
@@ -37,13 +29,31 @@
 .hero-content {
   width: 631px;
   display: block;
-  height: 130px;
-  position: relative;
   transform: translate3d(0px, 0px, 0px);
   margin: -130px auto 0px;
-  padding: 20px 30px 30px;
-}
-.col {
-  width: 500px;
+  padding: 30px;
+  color: rgb(255, 255, 255);
+  text-shadow: none;
+  background: rgb(0, 72, 137);
+  border-radius: 9px;
 
+  h1 {
+    font-size: 2.6rem;
+    margin-top: 0;
+  }
+}
+
+
+.hero-form {
+  margin-top: 30px;
+}
+
+.hero-form input {
+  width: 35%;
+  display: inline-block;
+}
+
+.hero-form input:last-child {
+  width: 20%;
+  margin-top: -5px;
 }

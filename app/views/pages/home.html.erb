@@ -18,31 +18,68 @@
 
 <body>
 
-  <div class="home-page"></div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="display-table width-100 height-100">
-        <div class="display-table-cell vertical-middle align-center">
-          <span class="block strapline-intro">Find your happy</span>
-          <h1 class="hero-strapline">Search properties for sale!</h1>
-          <!-- <div class="inline-block"> -->
-            <form action="/flats">
-             <div class="row">
-               <div class="col">
-                <input type="text" name="address" class="form-control" placeholder="Location">
-              </div>
-              <div class="col">
-               <input type="integer" name="price" class="form-control" placeholder="Price Range">
-               <input type="submit" value="Search" class="btn btn-default">
-             </div>
-           </div>
-         </form>
-         <div class="pos-rel">
-          <ul id="typeaheadList" class="type-ahead-list" style="display:none">
-          </ul>
+    <div class="home-page"></div>
+
+    <div class="container">
+
+        <div class="hero-content display-table width-100 height-100">
+            <div class="display-table-cell vertical-middle align-center">
+
+                <span class="block strapline-intro">Find your happy</span>
+                <h1 class="hero-strapline">Search properties for sale!</h1>
+
+                <!-- <div class="inline-block"> -->
+                <form action="/flats">
+
+                    <div class="row hero-form">
+
+                        <input type="text" name="address" class="form-control" placeholder="Location">
+
+                        <input type="integer" name="price" class="form-control" placeholder="Price Range">
+
+                        <input type="submit" value="Search" class="btn btn-primary">
+
+                    </div>
+
+                </form>
+
+                <div class="pos-rel">
+                    <ul id="typeaheadList" class="type-ahead-list" style="display:none"></ul>
+                </div>
+
+            </div>
         </div>
-      </div>
+
+        <section>
+            <div class="row">
+                <!-- Update to a loop -->
+                <div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="https://res.cloudinary.com/doq7jkjo0/image/upload/v1543314255/Houseo/Screenshot_2018-11-26_at_17.39.49.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="https://res.cloudinary.com/doq7jkjo0/image/upload/v1543314255/Houseo/Screenshot_2018-11-26_at_17.38.02.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="https://res.cloudinary.com/doq7jkjo0/image/upload/v1543314256/Houseo/Screenshot_2018-11-26_at_17.40.10.png" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                </div>
+            </div>
+        </section>
     </div>
-  </div>
+
 </body>
 </html>
