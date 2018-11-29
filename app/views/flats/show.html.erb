@@ -20,7 +20,7 @@
     <div class="col-xs-12 col-md-3">
      <div class="flat-price">
       <div class="price-info">
-      <p>€<%=@flat.price%></p>
+      <p>€<%=number_to_currency(@flat.price,unit: "€",precision: 0, format: "%n %u", delimiter: ".")%></p>
     </div>
     </div>
   </div>
