@@ -4,6 +4,7 @@ class AppointmentsController < ApplicationController
     @appointments = Appointment.where(flat_id: params[:flat_id])
   end
 
+
   def new
     @flat = Flat.find(params[:flat_id])
     @appointment = Appointment.new

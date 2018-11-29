@@ -1,37 +1,97 @@
 <div class="flat-container">
-  <div class="flat-image">
-    <%= cl_image_tag @flat.photo, height: 200, width: 300, crop: :fill %>
-  </div>
-  <div class="flat-details">
-      <div class="flat-title">
-        <p><strong><%=@flat.title.capitalize%></strong></p>
-        <p class ="flat-description"><%=@flat.description%></p>
+  <div class="flat-information">
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+      <div class="flat-image">
+        <%= cl_image_tag @flat.photo, height: 200, width: 300, crop: :fill%>
       </div>
-      <div class="flat-address">
-        <br>
-        <br>
-        <p>Address: <%= @flat.address %> | Rooms: <%= @flat.number_of_rooms %></p>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="flat-details">
+        <div class="flat-title">
+          <h2><strong><%=@flat.title.capitalize%></strong></h2>
+          <p><%=@flat.description%></p>
+        </div>
+        <div class="flat-address">
+          <p>Address: <%= @flat.address %> | Rooms: <%= @flat.number_of_rooms %></p>
+        </div>
       </div>
-  </div>
-  <div class="flat-price">
-      <h6>Price: </h6>
+    </div>
+    <div class="col-xs-12 col-md-3">
+     <div class="flat-price">
+      <div class="price-info">
       <p>€<%=@flat.price%></p>
+    </div>
+    </div>
+  </div>
   </div>
 </div>
 
+
 <% if !params[:format].nil? %>
-<%= link_to "Back to the search", flats_path(query:{address: params[:format]}), class:"btn btn-primary" %>
+<% if params[:format].include?("/") == false%>
+<%= link_to "Back to the search", flats_path(query:{address: params[:format]}), class:"btn btn-primary btn-orange" %>
 <% end  %>
+<% end %>
+
+
 <p></p>
+
+
+
+
+
 
 <% if @flat.user != current_user %>
 <%= link_to "Add an appointment", new_flat_appointment_path(params[:id]), class:"btn btn-primary" %>
 <p></p>
 <% end %>
 
+
 <% if @flat.user == current_user %>
-<%= link_to "See appointments", flat_appointments_path(@flat.id), class:"btn btn-primary" %>
+<h3>Appointmentss</h3>
+
+
+
+
+<%@appointments.each do |appointment| %>
+<ul>
+  <li><%= User.where(id: appointment.user_id).first.email %></li>
+  <li><%=appointment.time%></li>
+  <li><%=appointment.date%></li>
+  <li>
+  <div class="dropdown">
+      <p data-toggle="dropdown"><%=appointment.status%></p>
+        <ul class="dropdown-menu">
+   <li><%= link_to "Make pending", flat_path(appointment.flat, [appointment.id, "Pending"]) %> </li>
+   <li><%= link_to "Accept it", flat_path(appointment.flat, [appointment.id, "Approved"]) %> </li>
+   <li><%= link_to "Reject it", flat_path(appointment.flat, [appointment.id, "Rejected"]) %> </li>
+   </ul>
+      </div>
+  </li>
+
+    <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
+     method: :delete,
+     data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+
+
+<% end %>
 <% end %>
 
-
+<div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h2>Flatpickr Demo</h2>
 </div>
+
+
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+

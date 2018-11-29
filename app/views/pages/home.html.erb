@@ -25,9 +25,15 @@
 
           <h1 class="hero-strapline">Search properties for sale!</h1>
 
-          <%= simple_form_for :query, method: :get, url: flats_path do |f| %>
-          <%= f.input :address, label: false, placeholder: "Location", :input_html => { :id => "flat_address"} %>
-          <%= f.input :price, label: false, placeholder: "Price range" %>
+
+                <%= simple_form_for :query, method: :get, url: flats_path do |f| %>
+                <%= f.input :address, label: false, placeholder: "Location", :input_html => { :id => "flat_address"} %>
+                <div class="row"></div>
+
+                <div class="form-group form-inline center-block">
+                  <%= f.input :min_price, label: false, placeholder: "Min. Price" %>
+                  <%= f.input :max_price, label: false, placeholder: "Max. Price" %>
+                </div>
 
           <span><%= f.submit "Search", class: "btn btn-primary center-block" %></span>
           <% end %>
