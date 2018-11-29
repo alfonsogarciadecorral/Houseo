@@ -1,3 +1,19 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
+
+.body {
+  display:flex;
+}
+
+.cards {
+  padding:10px 20px;
+  flex-grow: 1;
+}
+
+#map {
+  flex: 0 0 500px;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+}

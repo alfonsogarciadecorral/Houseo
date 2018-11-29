@@ -12,7 +12,7 @@
      method: :delete,
      data: { confirm: "Are you sure?" } %>
             </div>
-            <p class="card-category"><%= flat.price %></p>
+            <p class="card-price"><%= number_to_currency(flat.price,unit: "€",precision: 0, format: "%n %u", delimiter: ".") %></p>
           </div>
         </div>
       <% end %>
@@ -28,14 +28,12 @@
 <h1> My appointmentsssss</h1>
 <%@user.appointments.each do |appointment| %>
 <ul>
-  <li><%=appointment.time%></li>
+ <li><%= link_to Flat.where(id: appointment.flat_id).first.title, flat_path(Flat.where(id: appointment.flat_id).first) %></li>
+  <li><%= appointment.status %></li>
+<li><%=appointment.time%></li>
   <li><%=appointment.date%></li>
-  <li><%=appointment.status%></li>
   <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
      method: :delete,
      data: { confirm: "Are you sure?" } %></li>
 </ul>
-
-
 <% end %>
-

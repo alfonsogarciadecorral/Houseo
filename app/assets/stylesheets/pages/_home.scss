@@ -1,29 +1,22 @@
 .display-table-cell {
-  text-shadow: none !important;
+  // text-shadow: none !important;
   background: #3DA0D5;
   text-shadow: none;
   line-height: 44px;
-  padding: 15px 30px;
+  padding: 8px 36px;
   border-radius: 8px 8px 8px 8px;
 }
 
 .block {
-  font-family: Effra-Medium, Arial, Geneva, sans-serif;
-  font-weight: 400;
-  font-size: 37px;
-  color: rgb(0, 222, 182);
-  padding: 0px 0px 1px;
-  margin: 0px;
+    display: block;
 }
 
 .home-page {
-  height: auto;
-  max-width: 100%;
+  max-width: auto;
   background-image: url('https://images.unsplash.com/photo-1469022563428-aa04fef9f5a2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2fea33c2ea82f6963db6c6c0c81e9a4b&auto=format&fit=crop&w=1053&q=80');
   height: 370px;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-position: 10px;
   width: 100%;
   margin: 0px 0px;
 }
@@ -35,7 +28,7 @@
   position: relative;
   transform: translate3d(0px, 0px, 0px);
   margin: -130px auto 0px;
-  padding: 20px 30px 30px;
+  padding: 30px;
 }
 .col {
   width: 500px;
@@ -45,6 +38,10 @@
   color: white;
   font-size: 30px;
   text-align: center;
+  padding: 0;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-left: 05px;
 }
 
 .btn {
@@ -55,4 +52,14 @@
 .form-inline {
   align-items: center;
 }
+
+
+.card-img {
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  padding: 40px;
+  color: black;
+}
+
 

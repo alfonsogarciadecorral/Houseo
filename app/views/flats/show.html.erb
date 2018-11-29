@@ -29,7 +29,7 @@
 <% if !params[:format].nil? %>
 <%= link_to "Back to the search", flats_path(query:{address: params[:format]}), class:"btn btn-primary btn-orange" %>
 <% end  %>
-
+<p></p>
 
 <%= link_to "Add an appointment", new_flat_appointment_path(params[:id]), class:"btn btn-primary btn-orange" %>
 <p></p>
@@ -51,6 +51,14 @@
 
 
 <%= link_to "See appointments", flat_appointments_path(@flat.id), class:"btn btn-primary btn-orange" %>
+<% if @flat.user != current_user %>
+<%= link_to "Add an appointment", new_flat_appointment_path(params[:id]), class:"btn btn-primary" %>
+<p></p>
+<% end %>
+
+<% if @flat.user == current_user %>
+<%= link_to "See appointments", flat_appointments_path(@flat.id), class:"btn btn-primary" %>
+<% end %>
 
 </div>
 
