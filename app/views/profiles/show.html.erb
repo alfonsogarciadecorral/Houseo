@@ -13,7 +13,7 @@
      method: :delete,
      data: { confirm: "Are you sure?" } %>
             </div>
-            <p class="card-category"><%= flat.price %></p>
+            <p class="card-price"><%= number_to_currency(flat.price,unit: "€",precision: 0, format: "%n %u", delimiter: ".") %></p>
           </div>
         </div>
       <% end %>
