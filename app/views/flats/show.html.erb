@@ -22,27 +22,16 @@
 <% if !params[:format].nil? %>
 <%= link_to "Back to the search", flats_path(query:{address: params[:format]}), class:"btn btn-primary" %>
 <% end  %>
-
-
-<%= link_to "Add an appointment", new_flat_appointment_path(params[:id]), class:"btn btn-primary" %>
 <p></p>
 
-
-
-<%@appointments.each do |appointment| %>
-<ul>
-  <li><%=appointment.time%></li>
-  <li><%=appointment.date%></li>
-  <li><%=appointment.status%></li>
-  <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
-     method: :delete,
-     data: { confirm: "Are you sure?" } %></li>
-</ul>
-
-
+<% if @flat.user != current_user %>
+<%= link_to "Add an appointment", new_flat_appointment_path(params[:id]), class:"btn btn-primary" %>
+<p></p>
 <% end %>
 
-
+<% if @flat.user == current_user %>
 <%= link_to "See appointments", flat_appointments_path(@flat.id), class:"btn btn-primary" %>
+<% end %>
+
 
 </div>

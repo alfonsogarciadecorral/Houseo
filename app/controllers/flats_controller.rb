@@ -22,10 +22,14 @@ class FlatsController < ApplicationController
   end
 
   def create
+    user_aux = User.find(current_user.id)
+    user_aux.seller = true
+    user_aux.save
     @flat = Flat.new(flat_params)
     if !flat_params[:photo]
       @flat.remote_photo_url = "https://urbangauge.com/wp-content/uploads/2018/06/flat-768x384.jpg"
     end
+    current_user.seller = true
     @flat.user = current_user
     if @flat.save
       redirect_to flat_path(@flat)

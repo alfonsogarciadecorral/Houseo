@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   def index
     set_user
-    @appointments = Appointment.where(user_id: @user.id)
+    @appointments = Appointment.where(flat_id: params[:flat_id])
   end
 
   def new

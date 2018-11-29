@@ -2,6 +2,7 @@
 
 <%@appointments.each do |appointment| %>
 <ul>
+  <li><%= User.where(id: appointment.user_id).first.email %></li>
   <li><%=appointment.time%></li>
   <li><%=appointment.date%></li>
   <li><%=appointment.status%></li>
