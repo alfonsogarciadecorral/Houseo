@@ -29,14 +29,13 @@
 
 
 <% if !params[:format].nil? %>
-<% if params[:format].include?("/") == false%>
+<% if params[:format].split("/").size != 2%>
 <%= link_to "Back to the search", flats_path(query:{address: params[:format]}), class:"btn btn-primary btn-orange" %>
 <% end  %>
 <% end %>
 
 
 <p></p>
-
 
 
 
@@ -50,8 +49,6 @@
 
 <% if @flat.user == current_user %>
 <h3>Appointmentss</h3>
-
-
 
 
 <%@appointments.each do |appointment| %>
