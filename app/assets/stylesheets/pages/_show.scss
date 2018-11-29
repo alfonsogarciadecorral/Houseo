@@ -22,6 +22,19 @@
   padding-left: 75px;
 }
 
+.card-description {
+  h2 {
+    margin-top: 50px;
+  }
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+.add {
+  margin-left: 20px;
+}
+
 .flat-title {
   position: absolute;
   h2 {
@@ -68,3 +81,22 @@
   width: 300px;
 }
 
+.actions-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -10px;
+}
+
+.edit-card {
+  font-size: 15px;
+  display: flex;
+  flex-direction: columns;
+  i {
+    padding-right: 5px;
+  }
+}
+
+
+.status-card {
+  font-size: 15px;
+}
