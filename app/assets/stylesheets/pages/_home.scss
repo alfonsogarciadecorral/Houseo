@@ -64,4 +64,26 @@
   color: black;
 }
 
+.homepage-card {
+    background-size: cover;
+    background-position: center;
+    height: 25rem;
+    border-radius: 1px;
+    margin: 15px 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 40px;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    border-radius: 9px;
+}
 
+.cards-container {
+  margin-top: 18rem;
+  margin-bottom: 10rem;
+  margin-right: 10px;
+  margin-left: 10px;
+}
