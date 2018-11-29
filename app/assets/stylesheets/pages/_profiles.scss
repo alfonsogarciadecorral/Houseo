@@ -1,0 +1,31 @@
+.fas {
+  color: black;
+}
+.edit-card {
+  font-size: 15px;
+  display: flex;
+  margin-left: 5px;
+  flex-direction: columns;
+  i {
+    padding: 0px 5px;
+  }
+}
+
+
+.status-card {
+  font-size: 15px;
+  a {
+    color: black;
+  }
+}
+
+.red a {
+  color: red;
+}
+
+.padding {
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+
