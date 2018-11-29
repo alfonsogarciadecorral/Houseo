@@ -13,7 +13,16 @@ class FlatsController < ApplicationController
     end
   end
 
+
   def show
+    if !params[:format].nil?
+      if params[:format].include?("/")
+      aux = params[:format].split("/")
+      appoint = Appointment.find(aux[0].to_i)
+      appoint.status = aux[1]
+      appoint.save
+      end
+    end
     @appointments = @flat.appointments
   end
 
