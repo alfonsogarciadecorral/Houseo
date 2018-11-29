@@ -31,6 +31,7 @@ class FlatsController < ApplicationController
       end
     end
     @appointments = @flat.appointments
+    @appointment = Appointment.new
   end
 
   def new

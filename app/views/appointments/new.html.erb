@@ -1,14 +1,11 @@
-<%= simple_form_for [@flat, @appointment] do |f| %>
-  <%= f.label :date %>
-  <%= f.input :date %>
 
-  <%= f.label :time %>
+<h5> Your appointment is the <%= params[:appointment][:time] %></h5>
+
+<%= simple_form_for [@appointment.flat, @appointment] do |f| %>
+  <%= f.input :date  %>
   <%= f.input :time %>
-
-  <%= f.submit "add a appointment", class: "btn btn-primary" %>
+  <%= f.submit "Confirm appointment", class: "btn btn-primary" %>
 <% end %>
 
-
-<%= link_to "Go to flats", flats_path %>
 
 
