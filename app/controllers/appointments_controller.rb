@@ -7,7 +7,6 @@ class AppointmentsController < ApplicationController
 
   def new
     @flat = Flat.find(params[:flat_id])
-    @appointment = Appointment.new
   end
 
   def create
