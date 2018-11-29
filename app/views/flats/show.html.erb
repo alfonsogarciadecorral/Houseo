@@ -30,8 +30,38 @@
 <% end %>
 
 <% if @flat.user == current_user %>
-<%= link_to "See appointments", flat_appointments_path(@flat.id), class:"btn btn-primary" %>
+<h3>Appointmentss</h3>
+
+
+
+
+<%@appointments.each do |appointment| %>
+<ul>
+  <li><%= User.where(id: appointment.user_id).first.email %></li>
+  <li><%=appointment.time%></li>
+  <li><%=appointment.date%></li>
+  <li>
+  <div class="dropdown">
+      <p data-toggle="dropdown"><%=appointment.status%></p>
+        <ul class="dropdown-menu">
+   <li><%= link_to "Make pending", flat_path(appointment.flat, [appointment.id, "Pending"]) %> </li>
+   <li><%= link_to "Accept it", flat_path(appointment.flat, [appointment.id, "Approved"]) %> </li>
+   <li><%= link_to "Reject it", flat_path(appointment.flat, [appointment.id, "Rejected"]) %> </li>
+   </ul>
+      </div>
+  </li>
+
+    <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
+     method: :delete,
+     data: { confirm: "Are you sure?" } %></li>
+</ul>
+
+
+
+<% end %>
 <% end %>
 
 
 </div>
+
+
