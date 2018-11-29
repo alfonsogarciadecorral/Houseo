@@ -3,7 +3,14 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @flats = Flat.near(params["query"]["address"], 15)
+    flat_aux = Flat.near(params["query"]["address"].split("/")[0] , 15)
+
+    if params[:query]["address"].split("/")[1].nil?
+    @flats = flat_aux.where(price: params[:query][:min_price]..params[:query][:max_price]  )
+      else
+    @flats = flat_aux.where(price: params[:query]["address"].split("/")[1]..params[:query]["address"].split("/")[2]  )
+    end
+
     @markers = @flats.map do |flat|
       {
         lng: flat.longitude,
@@ -16,7 +23,7 @@ class FlatsController < ApplicationController
 
   def show
     if !params[:format].nil?
-      if params[:format].include?("/")
+      if params[:format].split("/").size == 2
       aux = params[:format].split("/")
       appoint = Appointment.find(aux[0].to_i)
       appoint.status = aux[1]
