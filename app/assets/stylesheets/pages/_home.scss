@@ -8,13 +8,13 @@
 }
 
 .block {
-    display: block;
+  display: block;
 }
 
 .home-page {
   max-width: auto;
   background-image: url('https://images.unsplash.com/photo-1469022563428-aa04fef9f5a2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2fea33c2ea82f6963db6c6c0c81e9a4b&auto=format&fit=crop&w=1053&q=80');
-  height: 370px;
+  height: 365px;
   background-repeat: no-repeat;
   background-size: 100%;
   width: 100%;
@@ -22,7 +22,7 @@
 }
 
 .hero-content {
-  width: 631px;
+  width: 575px;
   display: block;
   height: 130px;
   position: relative;
@@ -51,6 +51,8 @@
 
 .form-inline {
   align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 
