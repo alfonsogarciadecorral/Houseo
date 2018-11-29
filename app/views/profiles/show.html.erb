@@ -3,25 +3,38 @@
     <div class="row">
       <%@flats.each do |flat| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path flat.photo, height: 300, width: 400, crop: :fill %>')">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path flat.photo, height: 280, width: 400, crop: :fill %>')">
             <div class="card-description">
               <h2><%= link_to flat.title, flat_path(flat) %></h2>
               <p>Address: <%= flat.address %> | Rooms: <%= flat.number_of_rooms %></p>
-                <p><%= link_to "Pending appointments: #{flat.appointments.where(status: "Pending").count}", flat_path(flat) %></p>
-               <p><%= link_to "Edit flat", edit_flat_path(flat) %></p>
-                <p><%= link_to "Delete flat", flat_path(flat),
-     method: :delete,
-     data: { confirm: "Are you sure?" } %>
             </div>
             <p class="card-price"><%= number_to_currency(flat.price,unit: "€",precision: 0, format: "%n %u", delimiter: ".") %></p>
           </div>
+          <div class="actions-container">
+            <div class="edit-card">
+              <p><%= link_to edit_flat_path(flat) do %>
+                <i class="fas fa-edit"></i>
+                <% end %>
+              </p>
+              <p><%= link_to flat_path(flat),
+                method: :delete,
+                data: { confirm: "Are you sure?" } do  %>
+                  <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                  </p>
+            </div>
+            <div class="status-card">
+              <p><%= link_to "Pending appointments: #{flat.appointments.where(status: "Pending").count}", flat_path(flat) %>
+              </p>
+            </div>
+          </div>
         </div>
-      <% end %>
+      <%end%>
     </div>
   </div>
 </div>
 
-<p><%= link_to "Add a new flat", new_flat_path %></p>
+<p class="add"><%= link_to "Add a new flat", new_flat_path %></p>
 
 
 
