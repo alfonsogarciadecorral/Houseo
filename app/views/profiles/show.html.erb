@@ -7,6 +7,7 @@
             <div class="card-description">
               <h2><%= link_to flat.title, flat_path(flat) %></h2>
               <p>Address: <%= flat.address %> | Rooms: <%= flat.number_of_rooms %></p>
+                <p><%= link_to "Pending appointments: #{flat.appointments.where(status: "Pending").count}", flat_path(flat) %></p>
                <p><%= link_to "Edit flat", edit_flat_path(flat) %></p>
                 <p><%= link_to "Delete flat", flat_path(flat),
      method: :delete,
@@ -24,16 +25,3 @@
 
 
 
-
-<h1> My appointmentsssss</h1>
-<%@user.appointments.each do |appointment| %>
-<ul>
- <li><%= link_to Flat.where(id: appointment.flat_id).first.title, flat_path(Flat.where(id: appointment.flat_id).first) %></li>
-  <li><%= appointment.status %></li>
-<li><%=appointment.time%></li>
-  <li><%=appointment.date%></li>
-  <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
-     method: :delete,
-     data: { confirm: "Are you sure?" } %></li>
-</ul>
-<% end %>
