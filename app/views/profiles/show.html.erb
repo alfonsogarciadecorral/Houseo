@@ -1,4 +1,4 @@
-<div class="body">
+<div class="container">
   <div class="cards">
     <div class="row">
       <%@flats.each do |flat| %>
@@ -23,24 +23,31 @@
                   <% end %>
                   </p>
             </div>
-            <div class="status-card">
-              <p><%= link_to "Pending appointments: #{flat.appointments.where(status: "Pending").count}", flat_path(flat) %>
-              </p>
-            </div>
+            <% if flat.appointments.where(status: "Pending").count > 0 %>
+              <div class="status-card red">
+                <p><%= link_to "Pending appointments: #{flat.appointments.where(status: "Pending").count}", flat_path(flat) %>
+                </p>
+              </div>
+            <% else  %>
+              <div class="status-card">
+                <p><%= link_to "Pending appointments: #{flat.appointments.where(status: "Pending").count}", flat_path(flat) %>
+                </p>
+              </div>
+            <% end %>
           </div>
         </div>
       <%end%>
     </div>
   </div>
-</div>
-
-<p class="add"><%= link_to "Add a new flat", new_flat_path %></p>
 
 
+<%= link_to "Add a new flat", new_flat_path, class: "btn btn-success padding" %>
 
 
 
-<h1> My appointmentsssss</h1>
+
+
+<h1>My appointments</h1>
 
 <%@user.appointments.each do |appointment| %>
 
@@ -63,4 +70,5 @@
 </ul>
 
 <% end %>
+</div>
 
