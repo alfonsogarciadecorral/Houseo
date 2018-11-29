@@ -1,13 +1,17 @@
-<%= simple_form_for [@flat] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :address, :input_html => {
-        :id => "flat_address"
-      } %>
-  <%= f.input :price %>
-  <%= f.input :description %>
-  <%= f.input :number_of_rooms %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit "Edit", class: "btn btn-primary" %>
-<% end %>
-<p><%= link_to "Back to flats list", flats_path %></p>
+<div class="container">
+  <div class="add-form center-block">
+    <%= simple_form_for [@flat] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :address, :input_html => {
+          :id => "flat_address"
+        } %>
+    <%= f.input :price, as: :integer %>
+    <%= f.input :description %>
+    <%= f.input :number_of_rooms, as: :numeric %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.submit "Edit", class: "btn btn-primary bigger" %>
+  <% end %>
+  <%= link_to "Back to your profile", profiles_path, class:"back-homepage" %>
+  </div>
+</div>
