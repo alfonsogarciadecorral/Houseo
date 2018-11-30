@@ -1,9 +1,5 @@
-body {
-  background-color: white;
-}
-
 .container {
-  //background-color: white;
+  background-color: white;
 }
 
 .flat-container {
@@ -95,7 +91,25 @@ body {
   margin-top: -10px;
 }
 
+h3 {
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  text-align: center;
+}
 
+.call-to-action {
+  margin-top: 25px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-position: center;
+}
+
+.calendar {
+  color:white;
+}
+
+.small-text {
+  font-size: 14px;
+}
 
 .message {
   display: flex;
@@ -221,7 +235,4 @@ body {
     display: flex;
   }
 }
-
-
-
 
