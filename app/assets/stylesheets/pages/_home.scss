@@ -55,6 +55,13 @@
   justify-content: space-between;
 }
 
+.hero-content {
+  .form-inline .form-control {
+    width: 100% !important;
+  }
+
+}
+
 
 .card-img {
   color: white;
