@@ -46,8 +46,9 @@
 
 
 
-
+<% if @user.appointments.count != 0 %>
 <h1>My appointments</h1>
+<% end %>
 
 <%@user.appointments.each do |appointment| %>
 

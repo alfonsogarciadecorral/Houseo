@@ -41,10 +41,7 @@
 
 
 
-<% if @flat.user != current_user %>
-<%= link_to "Add an appointment", new_flat_appointment_path(params[:id]), class:"btn btn-primary" %>
-<p></p>
-<% end %>
+
 
 
 <% if @flat.user == current_user %>
@@ -74,6 +71,7 @@
 <% end %>
 <% end %>
 
+<% if @flat.user != current_user %>
 
   <div class="calendar" style="width: 400px; margin: 0 auto;">
     <h2>Add an appointment</h2>
@@ -85,3 +83,4 @@
     <% end %>
   </div>
 
+<% end %>
