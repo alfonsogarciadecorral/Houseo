@@ -110,3 +110,129 @@ h3 {
 .small-text {
   font-size: 14px;
 }
+
+.message {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  max-width: 670px;
+}
+
+.message:last-child {
+  border-bottom: none;
+}
+
+.message-name {
+  flex-grow: 1;
+  max-width: 250px;
+}
+
+.message-body {
+  flex-grow: 1;
+  max-width: 300px;
+}
+
+.message-name {
+  padding-left: 10px;
+  font-size: 15px;
+  color: rgba(0,0,0,0.9);
+}
+
+.message-name {
+   font-size: 15px;
+  margin-bottom: 0px;
+  color: rgba(0,0,0,0.9);
+}
+
+.message-name strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+
+.message-body {
+  padding-left: 10px;
+  font-size: 15px;
+  color: rgba(0,0,0,0.7);
+}
+
+.message-body {
+  font-size: 15px;
+  margin-bottom: 15px;
+  color: rgba(0,0,0,0.4);
+}
+
+.message-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+
+.message-body p {
+
+  margin: 6px 0;
+
+}
+
+.message-status {
+
+  font-size: 16px;
+  margin-bottom: 5px;
+
+  font-weight: bold;
+
+}
+
+.status.accepted {
+
+  color: #04A366;
+
+}
+
+.status.declined {
+
+  color: red;
+
+}
+
+.status.pending {
+
+  color: lightgrey;
+
+}
+
+.property-ad {
+  margin-bottom: 10px;
+  // display: flex;
+  // width: 100px;
+}
+
+.property-ad li {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  font-family: Helvetica, sans-serif;
+  a {
+    color: #f47540;
+    text-decoration: none;
+    margin-bottom: 10rem;
+  }
+}
+
+.myappcard {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  border-radius: 6px;
+}
+
+.customize {
+  margin-top: 10px;
+  .status {
+    color: #f47540;
+    display: flex;
+  }
+}
+

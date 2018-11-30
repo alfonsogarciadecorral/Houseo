@@ -36,32 +36,42 @@
 <% end %>
 
 
-<% if @flat.user == current_user %>
-<h3>Appointments</h3>
+<% if @flat.user == current_user && @appointments.count != 0 %>
+<h3>Appointmentss</h3>
+
 
 
 <%@appointments.each do |appointment| %>
-<ul>
-  <li><%= User.where(id: appointment.user_id).first.email %></li>
-  <li><%=appointment.date%></li>
-  <li>
+
+<div class="message center-block" >
+  <div class="message-name">
+    <p><%= User.where(id: appointment.user_id).first.email %></p>
+  </div>
+  <div class="message-body">
+    <p> <%= "#{appointment.date}, #{appointment.time.strftime('at %I:%M%p')}"  %> </p>
+  </div>
+  <div class="message-status">
+
   <div class="dropdown">
-      <p data-toggle="dropdown"><%=appointment.status%></p>
+      <% if appointment.status == "Pending" %>
+      <p class="status pending", data-toggle="dropdown"><%=appointment.status%></p>
+      <% elsif  appointment.status == "Approved" %>
+      <p class="status accepted", data-toggle="dropdown"><%=appointment.status%></p>
+      <%  else  %>
+      <p class="status declined", data-toggle="dropdown"><%=appointment.status%></p>
+      <% end  %>
         <ul class="dropdown-menu">
-   <li><%= link_to "Make pending", flat_path(appointment.flat, [appointment.id, "Pending"]) %> </li>
-   <li><%= link_to "Accept it", flat_path(appointment.flat, [appointment.id, "Approved"]) %> </li>
+   <li ><%= link_to "Make pending", flat_path(appointment.flat, [appointment.id, "Pending"]) %> </li>
+   <li ><%= link_to "Accept it", flat_path(appointment.flat, [appointment.id, "Approved"]) %> </li>
    <li><%= link_to "Reject it", flat_path(appointment.flat, [appointment.id, "Rejected"]) %> </li>
    </ul>
       </div>
-  </li>
 
-    <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
-     method: :delete,
-     data: { confirm: "Are you sure?" } %></li>
-</ul>
-
+  </div>
+</div>
 <% end %>
 <% end %>
+
 
 <% if @flat.user != current_user %>
   <div class="call-to-action" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path("n5notsnugb6t3ghtfkdx.jpg") %>')">
