@@ -195,44 +195,65 @@ h3 {
 }
 
 .status.pending {
-
   color: lightgrey;
 
 }
 
-.property-ad {
-  margin-bottom: 10px;
-  // display: flex;
-  // width: 100px;
+.property-ad-container {
+  padding: 20px;
+  height: 100vh;
+  h3 {
+  margin-bottom: 20px;
+  }
 }
 
-.property-ad li {
-  list-style: none;
-  text-decoration: none;
-  color: black;
-  font-family: Helvetica, sans-serif;
-  a {
-    color: #f47540;
-    text-decoration: none;
-    margin-bottom: 10rem;
-  }
+.ad-card {
+  margin: 10px;
+  width: 500px;
+  display: flex;
+  border-right: 3px solid #479ED0;
+  border-radius: 6px;
+  padding-right: 10px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+
 }
 
 .myappcard {
-  height: 200px;
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  font-size: 40px;
-  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  width: 300px;
 }
+
 
 .customize {
   margin-top: 10px;
+  text-decoration: none;
+  list-style: none;
   .status {
-    color: #f47540;
+    color: #479ED0;
     display: flex;
   }
 }
+a {
+  color: #479ED0;
+  text-decoration: none;
+}
 
+a:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #999999;
+}
+
+.card-of-my-flat {
+  height: 176px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
