@@ -38,7 +38,22 @@
         </div>
       <%end%>
     </div>
-</div>
+
+  </div>
+
+
+<%= link_to "Add a new flat", new_flat_path, class: "btn btn-success padding" %>
+
+
+
+
+<% if @user.appointments.count != 0 %>
+<h1>My appointments</h1>
+<% end %>
+
+<%@user.appointments.each do |appointment| %>
+
+<ul>
 
 
 <div class="property-ad-container">
@@ -48,8 +63,7 @@
     </div>
   </div>
 
-
-  <%@user.appointments.each do |appointment| %>
+  <li><%=appointment.date%></li>
 
   <div class="property-ad row">
    <div class="col-xs-12 col-sm-6 col-sm-4">
