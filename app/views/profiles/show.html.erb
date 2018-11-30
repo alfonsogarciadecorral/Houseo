@@ -1,85 +1,86 @@
 <div class="container">
-  <% if current_user.flats.count != 0 %>
-      <h3>My ads</h3>
-  <% end %>
-  <div class="cards">
-    <div class="row">
-      <%@flats.each do |flat| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path flat.photo, height: 280, width: 400, crop: :fill %>')">
-            <div class="card-description">
-              <h2><%= link_to flat.title, flat_path(flat) %></h2>
-              <p>Address: <%= flat.address %> | Rooms: <%= flat.number_of_rooms %></p>
-            </div>
-            <p class="card-price"><%= number_to_currency(flat.price,unit: "€",precision: 0, format: "%n %u", delimiter: ".") %></p>
-          </div>
-          <div class="actions-container">
-            <div class="edit-card">
-              <p><%= link_to edit_flat_path(flat) do %>
-                <i class="fas fa-edit"></i>
+
+    <% if current_user.flats.count != 0 %>
+    <div class="flats-container">
+        <h3>My ads</h3>
+        <div class="cards">
+            <div class="row">
+
+                <%@flats.each do |flat| %>
+
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="card-of-my-flat" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path flat.photo, height: 280, width: 400, crop: :fill %>')">
+                        <div class="card-description">
+                            <h2><%= link_to flat.title, flat_path(flat) %></h2>
+                            <p>Address: <%= flat.address %> | Rooms: <%= flat.number_of_rooms %></p>
+                        </div>
+                        <p class="card-price"><%= number_to_currency(flat.price,unit: "€",precision: 0, format: "%n %u", delimiter: ".") %></p>
+                    </div>
+
+                    <div class="actions-container">
+                        <div class="edit-card">
+                            <p><%= link_to edit_flat_path(flat) do %>
+                                <i class="fas fa-edit"></i>
+                                <% end %> </p>
+                                <p><%= link_to flat_path(flat),
+                                method: :delete,
+                                data: { confirm: "Are you sure?" } do  %>
+                                <i class="fas fa-trash-alt"></i>
+                                <% end %> </p>
+                            </div>
+
+                            <% if flat.appointments.where(status: "Pending").count > 0 %>
+
+                            <div class="status-card red">
+                                <p><%= link_to "Pending appointments: #{flat.appointments.where(status: "Pending").count}", flat_path(flat) %> </p>
+                            </div>
+
+                            <% else  %>
+
+                            <div class="status-card">
+                                <p><%= link_to "Pending appointments: #{flat.appointments.where(status: "Pending").count}", flat_path(flat) %> </p>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                    <%end%>
+                </div>
                 <% end %>
-              </p>
-              <p><%= link_to flat_path(flat),
-                method: :delete,
-                data: { confirm: "Are you sure?" } do  %>
-                  <i class="fas fa-trash-alt"></i>
-                  <% end %>
-                  </p>
             </div>
-            <% if flat.appointments.where(status: "Pending").count > 0 %>
-              <div class="status-card red">
-                <p><%= link_to "Pending appointments: #{flat.appointments.where(status: "Pending").count}", flat_path(flat) %>
-                </p>
-              </div>
-            <% else  %>
-              <div class="status-card">
-                <p><%= link_to "Pending appointments: #{flat.appointments.where(status: "Pending").count}", flat_path(flat) %>
-                </p>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <%end%>
-    </div>
-
-  </div>
-
-
-<%= link_to "Post your ad", new_flat_path, class: "btn btn-success padding" %>
-
-
-<% if current_user.appointments.count != 0 %>
-
-<div class="property-ad-container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>My appointments</h3>
-    </div>
-  </div>
-
-  <%@user.appointments.each do |appointment| %>
-
-  <div class="property-ad row">
-   <div class="col-xs-12 col-sm-6 col-sm-4">
-    <div class="myappcard" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1541604193435-22287d32c2c2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=444ee2be04c2a4083a0aa214d910c27a&auto=format&fit=crop&w=1650&q=80')">
-    </div>
-
-        <ul class="col-xs-12 col-sm-8 customize" style="font-weight:bold"> <%= link_to Flat.where(id: appointment.flat_id).first.title, flat_path(Flat.where(id: appointment.flat_id).first), class:"btn-button" %>
-          <span class="status"><%= appointment.status %></span>
-          <br>
-
-            <li><%= "#{appointment.date}, #{appointment.time.strftime('at %I:%M%p')}"  %></li>
-
             <br>
-            <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %></li>
-        </ul>
-      </div>
 
-  <% end %>
-</div>
+            <%= link_to "Post your ad", new_flat_path, class: "btn btn-success padding" %>
 
-</div>
+            <% if current_user.appointments.count != 0 %>
+            <div class="property-ad-container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h3>My appointments</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <%@user.appointments.each do |appointment| %>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="ad-card">
+                            <div class="myappcard" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1541604193435-22287d32c2c2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=444ee2be04c2a4083a0aa214d910c27a&auto=format&fit=crop&w=1650&q=80')">
+                            </div>
+                            <div class="appointment-info">
+                                <ul class="customize" style="font-weight:bold"> <%= link_to Flat.where(id: appointment.flat_id).first.title, flat_path(Flat.where(id: appointment.flat_id).first), class:"btn-button" %>
+                                    <span class="status"><%= appointment.status %></span>
+                                    <br>
 
-<% end  %>
+                                    <li><%= "#{appointment.date}, #{appointment.time.strftime('at %I:%M%p')}"  %></li> <br>
+                                    <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
+                                    method: :delete,
+                                    data: { confirm: "Are you sure?" } %> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+
+
+                <% end %>
+            </div>
+
