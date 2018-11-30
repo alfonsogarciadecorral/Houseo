@@ -20,7 +20,6 @@ class FlatsController < ApplicationController
     end
   end
 
-
   def show
     if !params[:format].nil?
       if params[:format].split("/").size == 2
@@ -31,7 +30,13 @@ class FlatsController < ApplicationController
       end
     end
     @appointments = @flat.appointments
+
     @appointment = Appointment.new
+    if session[:date] && session[:time]
+      # raise
+      @appointment.date = session[:date]
+      @appointment.time = session[:time]
+    end
   end
 
   def new
