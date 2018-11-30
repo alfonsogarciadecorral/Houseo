@@ -1,4 +1,7 @@
 <div class="container">
+  <% if current_user.flats.count != 0 %>
+      <h3>My ads</h3>
+  <% end %>
   <div class="cards">
     <div class="row">
       <%@flats.each do |flat| %>
@@ -45,6 +48,8 @@
 <%= link_to "Post your ad", new_flat_path, class: "btn btn-success padding" %>
 
 
+<% if current_user.appointments.count != 0 %>
+
 <div class="property-ad-container">
   <div class="row">
     <div class="col-xs-12">
@@ -63,8 +68,8 @@
           <span class="status"><%= appointment.status %></span>
           <br>
 
-            <li><%= appointment.time %></li>
-            <li><%= appointment.date %></li>
+            <li><%= "#{appointment.date}, #{appointment.time.strftime('at %I:%M%p')}"  %></li>
+
             <br>
             <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
             method: :delete,
@@ -76,3 +81,5 @@
 </div>
 
 </div>
+
+<% end  %>

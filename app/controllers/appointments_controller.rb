@@ -27,7 +27,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     @flat = @appointment.flat
     @appointment.destroy
-    redirect_to flat_path(@flat)
+    redirect_to profiles_path
   end
 
   private
