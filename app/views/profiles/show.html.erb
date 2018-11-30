@@ -38,6 +38,7 @@
         </div>
       <%end%>
     </div>
+
   </div>
 
 
@@ -54,20 +55,36 @@
 
 <ul>
 
- <li><%= link_to Flat.where(id: appointment.flat_id).first.title, flat_path(Flat.where(id: appointment.flat_id).first) %></li>
 
-  <li><%= appointment.status %></li>
+<div class="property-ad-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>My appointments</h3>
+    </div>
+  </div>
 
   <li><%=appointment.date%></li>
 
-  <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
+  <div class="property-ad row">
+   <div class="col-xs-12 col-sm-6 col-sm-4">
+    <div class="myappcard" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1541604193435-22287d32c2c2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=444ee2be04c2a4083a0aa214d910c27a&auto=format&fit=crop&w=1650&q=80')">
+    </div>
 
-     method: :delete,
+        <ul class="col-xs-12 col-sm-8 customize" style="font-weight:bold"> <%= link_to Flat.where(id: appointment.flat_id).first.title, flat_path(Flat.where(id: appointment.flat_id).first), class:"btn-button" %>
+          <span class="status"><%= appointment.status %></span>
+          <br>
 
-     data: { confirm: "Are you sure?" } %></li>
+            <li><%= appointment.time %></li>
+            <li><%= appointment.date %></li>
+            <br>
+            <li><%= link_to "Delete appointment", flat_appointment_path(appointment.flat, appointment),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></li>
+        </ul>
+      </div>
 
-</ul>
+  <% end %>
+</div>
 
-<% end %>
 </div>
 

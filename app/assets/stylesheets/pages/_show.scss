@@ -1,6 +1,7 @@
 body {
   background-color: white;
 }
+
 .container {
   //background-color: white;
 }
@@ -184,3 +185,43 @@ body {
   color: lightgrey;
 
 }
+
+.property-ad {
+  margin-bottom: 10px;
+  // display: flex;
+  // width: 100px;
+}
+
+.property-ad li {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  font-family: Helvetica, sans-serif;
+  a {
+    color: #f47540;
+    text-decoration: none;
+    margin-bottom: 10rem;
+  }
+}
+
+.myappcard {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  border-radius: 6px;
+}
+
+.customize {
+  margin-top: 10px;
+  .status {
+    color: #f47540;
+    display: flex;
+  }
+}
+
+
+
+
