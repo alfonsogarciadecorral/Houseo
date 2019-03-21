@@ -4,7 +4,6 @@ class AppointmentsController < ApplicationController
     @appointments = Appointment.where(flat_id: params[:flat_id])
   end
 
-
   def new
     @flat = Flat.find(params[:flat_id])
   end
@@ -35,7 +34,6 @@ class AppointmentsController < ApplicationController
   def appointment_params
     params.require(:appointment).permit(:date, :time, :flat_id, :user_id, :status)
   end
-
 
   def set_user
     @user = current_user

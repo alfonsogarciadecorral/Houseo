@@ -10,3 +10,4 @@ class ProfilesController < ApplicationController
     @user = current_user
   end
 end
+
